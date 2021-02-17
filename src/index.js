@@ -12,6 +12,9 @@ import {
 
 import App from './components/App';
 import ViewCount from './components/ViewCount';
+import CountHooks from './components/CountHooks';
+import ViewCountHooks from './components/ViewCountHooks';
+import ViewPersons from './components/ViewPersons';
 import BaseLayout from './components/layout/BaseLayout';
 
 // Welcome to Redux 101
@@ -31,6 +34,9 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/" component={App}/>
             <Route path="/count" component={ViewCount}/>
+            <Route path="/count_hooks" component={CountHooks}/>
+            <Route path="/view_count_hooks" component={ViewCountHooks}/>
+            <Route path="/view_persons" component={ViewPersons}/>
           </Switch>
 
         </BaseLayout>
@@ -38,7 +44,7 @@ ReactDOM.render(
       </Router>
 
     </Provider>
-    
+
   </React.StrictMode>,
   document.getElementById('root')
 );

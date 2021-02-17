@@ -5,7 +5,8 @@ let initialState = {
 
     initializedAt: Date.now(),
     isInitialized: true,
-    count : 0
+    count : 0,
+    persons: []
 }
 
 const countReducer = (state, action) => {
@@ -31,6 +32,19 @@ const countReducer = (state, action) => {
                 isInitialized: false,
                 count: state.count - 1
             }
+
+        case "ADD_PERSON":
+            return {
+                ...state,
+                persons: [...state.persons, action.payload]
+            }
+
+        case "REMOVE_PERSON":
+            return {
+                ...state,
+                persons: state.persons.filter(person => person.firstName !== action.payload.firstName)
+            }
+
         default:
             return state;
     }

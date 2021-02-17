@@ -17,18 +17,25 @@ class App extends Component {
     }
   }
 
-  handleIncrease = () => {
+  handleCount = () => {
+    
+    // update both global and local state
 
     this.setState({
       count: this.state.count + 1
     })
+
+    this.props.onIncreaseClick()
   }
 
-  handleDecrease = () => {
+  handleDecreaseCount = () => {
 
+    // update both global and local state
     this.setState({
       count: this.state.count - 1
     })
+
+    this.props.onDecreaseClick()
   }
 
   render() {
@@ -37,10 +44,11 @@ class App extends Component {
       <>
         <h1>{this.props.title}</h1>
 
-        <h1>{this.props.counter}</h1>
+        <h1>Global: {this.props.counter}</h1>
+        <h1>Local: {this.state.count}</h1>
 
-        <button onClick={this.props.onIncreaseClick}>Increase</button>
-        <button onClick={this.props.onDecreaseClick}>Decrease</button>
+        <button onClick={this.handleCount}>Increase</button>
+        <button onClick={this.handleDecreaseCount}>Decrease</button>
       </>
     )
   }
